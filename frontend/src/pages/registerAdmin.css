@@ -1,0 +1,63 @@
+.admin-register-page {
+    min-height: 100vh;
+    background: #f1f5f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.admin-register-card {
+    background: white;
+    width: 100%;
+    max-width: 650px;
+    padding: 45px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.admin-register-icon {
+    width: 75px;
+    height: 75px;
+    background: #e7efff;
+    color: #0d6efd;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.admin-register-card h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #172554;
+}
+
+.admin-register-subtitle {
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+.admin-register-card .form-label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.admin-register-card .form-control {
+    min-height: 52px;
+    padding: 12px 15px;
+    border-radius: 8px;
+}
+
+.admin-register-card .btn {
+    min-height: 50px;
+    font-weight: 600;
+}
+
+@media (max-width: 576px) {
+    .admin-register-card {
+        padding: 25px;
+    }
+}

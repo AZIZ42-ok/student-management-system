@@ -1,0 +1,138 @@
+.edit-page {
+    min-height: 100vh;
+    width: 100%;
+    background: #f0f4f8;
+    padding: 70px 30px;
+}
+
+.edit-card {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 55px 60px;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
+}
+
+.edit-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.edit-icon {
+    width: 75px;
+    height: 75px;
+    background: #e0ecff;
+    color: #2563eb;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.edit-header h2 {
+    font-size: 34px;
+    font-weight: 750;
+    color: #172554;
+    margin: 0;
+}
+
+.edit-header p {
+    color: #64748b;
+    font-size: 16px;
+    margin: 7px 0 0;
+}
+
+.edit-card .form-label {
+    font-size: 16px;
+    font-weight: 650;
+    color: #334155;
+    margin-bottom: 12px;
+}
+
+.edit-card .form-control,
+.edit-card .form-select {
+    width: 100%;
+    min-height: 62px;
+    padding: 15px 18px;
+    border: 1px solid #d5dce5;
+    border-radius: 10px;
+    font-size: 17px;
+    background-color: #fff;
+}
+
+.edit-card .form-control:focus,
+.edit-card .form-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.edit-card input:disabled {
+    background: #edf1f5;
+    color: #64748b;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 18px;
+    margin-top: 40px;
+}
+
+.edit-actions button {
+    min-width: 190px;
+    min-height: 55px;
+    padding: 12px 22px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.edit-actions .btn-primary {
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+.edit-actions .btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.edit-actions .btn-outline-secondary:hover {
+    transform: translateY(-2px);
+}
+
+.edit-card .alert {
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+    .edit-page {
+        padding: 30px 15px;
+    }
+
+    .edit-card {
+        padding: 30px 22px;
+    }
+
+    .edit-header h2 {
+        font-size: 27px;
+    }
+
+    .edit-actions {
+        flex-direction: column;
+    }
+
+    .edit-actions button {
+        width: 100%;
+    }
+}

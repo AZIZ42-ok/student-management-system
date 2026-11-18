@@ -1,0 +1,81 @@
+.view-students-page {
+    min-height: 100vh;
+    background: #f1f5fa;
+    padding: 50px 35px;
+}
+
+.students-container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.students-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.students-header h2 {
+    color: #0b1f44;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.students-header p {
+    color: #7b8798;
+    font-size: 16px;
+}
+
+.students-header .btn {
+    padding: 13px 25px;
+    font-weight: 600;
+}
+
+.students-table-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+.students-table-card table {
+    margin-bottom: 0;
+}
+
+.students-table-card thead th {
+    background: #0b1f44;
+    color: white;
+    padding: 20px;
+    white-space: nowrap;
+}
+
+.students-table-card tbody td {
+    padding: 20px;
+    color: #34445c;
+    font-size: 15px;
+}
+
+.students-table-card tbody tr:hover {
+    background: #f1f7ff;
+}
+
+@media (max-width: 576px) {
+    .view-students-page {
+        padding: 25px 12px;
+    }
+
+    .students-header {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .students-header h2 {
+        font-size: 25px;
+    }
+
+    .students-table-card {
+        padding: 12px;
+    }
+}

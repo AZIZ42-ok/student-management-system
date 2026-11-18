@@ -1,0 +1,61 @@
+.login-page {
+    min-height: 100vh;
+    background: linear-gradient(120deg, #0b1f44, #123d75, #1769aa);
+    display: flex;
+    align-items: center;
+}
+
+/* Login card */
+.login-card {
+    width: 100%;
+    max-width: 750px;
+    min-height: 380px;
+    margin: auto;
+    border: none;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Card spacing */
+.login-card .card-body {
+    padding: 20px !important;
+}
+
+.login-icon {
+    font-size: 65px;
+}
+
+.login-card h3 {
+    font-size: 30px;
+}
+
+.login-card .form-control {
+    min-height: 50px;
+    font-size: 17px;
+}
+
+.login-card .btn {
+    min-height: 50px;
+    border-radius: 9px;
+    background-color: #1769aa;
+    border: none;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.login-card .btn:hover {
+    background-color: #0b4e85;
+}
+
+/* Footer */
+.login-page > .container p {
+    color: white !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 576px) {
+    .login-card .card-body {
+        padding: 20px !important;
+    }
+}

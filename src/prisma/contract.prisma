@@ -1,0 +1,21 @@
+// use prisma-8
+// Contract inferred from the live database schema. Edit as needed, then run `prisma contract emit`.
+
+model Students {
+  matricule  String(storage: varchar, length: 20)   @id(map: "students_pkey")
+  name       String(storage: varchar, length: 100)?
+  age        Int?
+  department String(storage: varchar, length: 100)?
+
+  @@map("students")
+}
+
+model Users {
+  id        Int                                         @id(map: "users_pkey") @default(autoincrement())
+  username  String(storage: varchar, length: 100)       @unique(map: "users_username_key")
+  email     String(storage: varchar, length: 150)       @unique(map: "users_email_key")
+  password  String
+  createdAt DateTime(storage: timestamp, precision: 6)? @default(now()) @map("created_at")
+
+  @@map("users")
+}

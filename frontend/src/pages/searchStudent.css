@@ -1,0 +1,88 @@
+.search-page {
+    min-height: 100vh;
+    background: #f1f5fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.search-card {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 45px;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.search-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.search-header i {
+    font-size: 55px;
+    color: #1769aa;
+}
+
+.search-header h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #0b1f44;
+    margin-top: 15px;
+}
+
+.search-header p {
+    color: #7b8798;
+}
+
+.search-card .form-label {
+    font-weight: 600;
+    color: #263b55;
+}
+
+.search-card .form-control {
+    min-height: 55px;
+    font-size: 16px;
+}
+
+.search-card .input-group .btn {
+    padding: 0 25px;
+    font-weight: 600;
+}
+
+.student-result {
+    background: #f1f7ff;
+    border-left: 5px solid #1769aa;
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+.student-result h4 {
+    color: #0b1f44;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.student-result p {
+    color: #34445c;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 576px) {
+    .search-card {
+        padding: 25px;
+    }
+
+    .search-card .input-group {
+        flex-direction: column;
+    }
+
+    .search-card .input-group .btn {
+        min-height: 50px;
+        margin-top: 10px;
+    }
+}
