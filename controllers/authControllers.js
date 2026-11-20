@@ -90,8 +90,23 @@ async function login(req, res) {
     }
 }
 
+// CHECK IF ADMIN EXISTS
+async function checkAdmin(req, res) {
+    try {
+        const user = await authModel.findFirstUser();
+
+        res.status(200).json({
+            adminExists: !!user
+        });
+
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
+
 
 module.exports = {
     register,
-    login
+    login,
+    checkAdmin
 };
