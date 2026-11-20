@@ -1,5 +1,6 @@
+
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import API_URL from '../api'
 import './dashboard.css'
 
@@ -40,6 +41,7 @@ function Dashboard() {
 
             {/* Sidebar */}
             <aside className="sidebar">
+
                 <h3>
                     <i className="bi bi-mortarboard-fill me-2"></i>
                     EduManage
@@ -47,44 +49,46 @@ function Dashboard() {
 
                 <p className="sidebar-label">MAIN MENU</p>
 
-                <a href="#" className="active">
+                <Link to="/dashboard" className="active">
                     <i className="bi bi-grid me-2"></i>
                     Dashboard
-                </a>
+                </Link>
 
-                <a href="/register">
+                <Link to="/register">
                     <i className="bi bi-person-plus me-2"></i>
                     Register Student
-                </a>
+                </Link>
 
-                <a href="/students">
+                <Link to="/students">
                     <i className="bi bi-people me-2"></i>
                     View Students
-                </a>
+                </Link>
 
-                <a href="/search">
+                <Link to="/search">
                     <i className="bi bi-search me-2"></i>
                     Search Students
-                </a>
+                </Link>
+
+                <Link to="/edit">
+                    <i className="bi bi-pencil-square me-2"></i>
+                    Edit Students
+                </Link>
 
                 <button
-                    className="btn btn-primary"
-                    onClick={() => navigate('/register-admin')}
+                    className="logout-btn"
+                    onClick={handleLogout}
                 >
-                    <i className="bi bi-person-plus me-2"></i>
-                    Register Admin
-                </button>
-
-                <button className="logout-btn" onClick={handleLogout}>
                     <i className="bi bi-box-arrow-left me-2"></i>
                     Logout
                 </button>
+
             </aside>
 
             {/* Main content */}
             <main className="main-content">
 
                 <div className="topbar">
+
                     <div>
                         <h2>Dashboard</h2>
                         <p>Welcome to your administration panel.</p>
@@ -94,6 +98,7 @@ function Dashboard() {
                         <i className="bi bi-person-circle"></i>
                         <span>Administrator</span>
                     </div>
+
                 </div>
 
                 <h4 className="section-title">Overview</h4>
@@ -141,6 +146,7 @@ function Dashboard() {
                 </div>
 
             </main>
+
         </div>
     )
 }
