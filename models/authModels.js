@@ -23,6 +23,15 @@ async function registerUser(user) {
     return result[0];
 }
 
+async function findFirstUser() {
+    const { default: db } = await dbPromise;
+
+    const result = await db.query(
+        db.raw.sql`SELECT id FROM users LIMIT 1`.build()
+    );
+
+    return result[0];
+}
 
 async function findUserByEmail(email) {
     const { default: db } = await dbPromise;
@@ -51,5 +60,6 @@ async function findUserByEmail(email) {
 
 module.exports = {
     registerUser,
-    findUserByEmail
+    findUserByEmail,
+    findFirstUser
 };
