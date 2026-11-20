@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import API_URL from '../api'
 import './searchStudent.css'
 
 function SearchStudents() {
@@ -17,7 +18,7 @@ function SearchStudents() {
 
         try {
             const response = await fetch(
-                `http://localhost:3000/students/${encodeURIComponent(matricule)}`,
+               ` ${API_URL}/students/${encodeURIComponent(matricule)} `,
                 {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`

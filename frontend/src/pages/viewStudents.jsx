@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import API_URL from '../api'
 import './viewStudents.css'
 
 function ViewStudents() {
@@ -11,7 +12,7 @@ function ViewStudents() {
 
     async function fetchStudents() {
         try {
-            const response = await fetch('http://localhost:3000/students', {
+            const response = await fetch(`${API_URL}/students`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -47,7 +48,7 @@ function ViewStudents() {
             setDeleting(matricule)
 
             const response = await fetch(
-                `http://localhost:3000/students/${encodeURIComponent(matricule)}`,
+                `${API_URL}/students/${encodeURIComponent(matricule)}`,
                 {
                     method: 'DELETE',
                     headers: {

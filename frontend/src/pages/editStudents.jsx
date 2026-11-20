@@ -1,6 +1,9 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import API_URL from '../api'
 import './editStudents.css'
+
+
 
 function EditStudent() {
     const location = useLocation()
@@ -23,7 +26,7 @@ function EditStudent() {
 
         try {
             const response = await fetch(
-                `http://localhost:3000/students/${encodeURIComponent(student.matricule)}`,
+            `${API_URL}/students/${encodeURIComponent(student.matricule)}`,
                 {
                     method: 'PUT',
                     headers: {

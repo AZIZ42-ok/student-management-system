@@ -1,33 +1,34 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import API_URL from '../api'
 import './dashboard.css'
 
 function Dashboard() {
     const navigate = useNavigate()
-    
+
     const [totalStudents, setTotalStudents] = useState(0)
 
-useEffect(() => {
-    async function fetchStudents() {
-        try {
-            const response = await fetch('http://localhost:3000/students', {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
+    useEffect(() => {
+        async function fetchStudents() {
+            try {
+                const response = await fetch(`${API_URL}/students`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                })
+
+                const data = await response.json()
+
+                if (response.ok) {
+                    setTotalStudents(data.length)
                 }
-            })
-
-            const data = await response.json()
-
-            if (response.ok) {
-                setTotalStudents(data.length)
+            } catch (error) {
+                console.log('Error fetching students:', error)
             }
-        } catch (error) {
-            console.log('Error fetching students:', error)
         }
-    }
 
-    fetchStudents()
-}, [])
+        fetchStudents()
+    }, [])
 
     function handleLogout() {
         localStorage.removeItem('token')
@@ -52,26 +53,27 @@ useEffect(() => {
                 </a>
 
                 <a href="/register">
-    <i className="bi bi-person-plus me-2"></i>
-    Register Student
-</a>
+                    <i className="bi bi-person-plus me-2"></i>
+                    Register Student
+                </a>
 
                 <a href="/students">
-    <i className="bi bi-people me-2"></i>
-    View Students
-</a>
+                    <i className="bi bi-people me-2"></i>
+                    View Students
+                </a>
 
-<a href="/search">
-    <i className="bi bi-search me-2"></i>
-    Search Students
-</a>
-<button
-    className="btn btn-primary"
-    onClick={() => navigate('/register-admin')}
->
-    <i className="bi bi-person-plus me-2"></i>
-    Register Admin
-</button>
+                <a href="/search">
+                    <i className="bi bi-search me-2"></i>
+                    Search Students
+                </a>
+
+                <button
+                    className="btn btn-primary"
+                    onClick={() => navigate('/register-admin')}
+                >
+                    <i className="bi bi-person-plus me-2"></i>
+                    Register Admin
+                </button>
 
                 <button className="logout-btn" onClick={handleLogout}>
                     <i className="bi bi-box-arrow-left me-2"></i>
@@ -102,7 +104,7 @@ useEffect(() => {
                         <div className="stat-card">
                             <div>
                                 <p>Total Students</p>
-                                <h2>0</h2>
+                                <h2>{totalStudents}</h2>
                             </div>
                             <i className="bi bi-people-fill"></i>
                         </div>
@@ -122,7 +124,7 @@ useEffect(() => {
                         <div className="stat-card">
                             <div>
                                 <p>Registered Today</p>
-                               <h2>{totalStudents}</h2>
+                                <h2>0</h2>
                             </div>
                             <i className="bi bi-person-check-fill"></i>
                         </div>

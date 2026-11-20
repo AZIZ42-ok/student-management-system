@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import API_URL from '../api'
 import './registerAdmin.css'
 
 function RegisterAdmin() {
@@ -30,7 +31,7 @@ function RegisterAdmin() {
             setMessage('')
 
             const response = await fetch(
-                'http://localhost:3000/auth/register',
+                `${API_URL}/auth/register `,
                 {
                     method: 'POST',
 

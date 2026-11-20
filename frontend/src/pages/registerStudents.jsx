@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import API_URL from '../api'
 import './registerStudents.css'
 
 function RegisterStudent() {
@@ -25,7 +26,7 @@ function RegisterStudent() {
         e.preventDefault()
 
         try {
-            const response = await fetch('http://localhost:3000/students', {
+            const response = await fetch( `${API_URL}/students `, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
