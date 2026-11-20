@@ -8,6 +8,13 @@ async function register(req, res) {
     try {
         const { username, email, password } = req.body;
 
+// Check if an admin already exists
+const existingUser = await authModel.findFirstUser();
+
+if (existingUser) {
+    return res.status(403).send("An administrator already exists");
+}
+
         if (!username || !email || !password) {
             return res.status(400).send("All fields are required");
         }
