@@ -1,12 +1,11 @@
+
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import API_URL from '../api'
 import './registerAdmin.css'
 
 function RegisterAdmin() {
 
-    const navigate = useNavigate()
-
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -31,16 +30,16 @@ function RegisterAdmin() {
             setMessage('')
 
             const response = await fetch(
-                `${API_URL}/auth/register `,
+                `${API_URL}/auth/register`,
                 {
                     method: 'POST',
 
                     headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                        'Content-Type': 'application/json'
                     },
 
                     body: JSON.stringify({
+                        username,
                         email,
                         password
                     })
@@ -50,11 +49,17 @@ function RegisterAdmin() {
             const result = await response.text()
 
             if (response.ok) {
-                setMessage('Administrator registered successfully!')
+                setMessage('Administrator registered successfully! Redirecting to login...')
 
+                setUsername('')
                 setEmail('')
                 setPassword('')
                 setConfirmPassword('')
+
+                setTimeout(() => {
+                    window.location.href = '/'
+                }, 1500)
+
             } else {
                 setMessage(result || 'Registration failed.')
             }
@@ -79,7 +84,7 @@ function RegisterAdmin() {
                 <h2>Register Administrator</h2>
 
                 <p className="admin-register-subtitle">
-                    Create a new administrator account
+                    Create your administrator account
                 </p>
 
                 {message && (
@@ -93,6 +98,21 @@ function RegisterAdmin() {
                 )}
 
                 <form onSubmit={handleRegister}>
+
+                    <div className="mb-4">
+                        <label className="form-label">
+                            Administrator Username
+                        </label>
+
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter administrator username"
+                            value={username}
+                            onChange={e => setUsername(e.target.value)}
+                            required
+                        />
+                    </div>
 
                     <div className="mb-4">
                         <label className="form-label">
@@ -148,13 +168,6 @@ function RegisterAdmin() {
                     </button>
 
                 </form>
-
-                <button
-                    className="btn btn-outline-secondary w-100 mt-3"
-                    onClick={() => navigate('/dashboard')}
-                >
-                    Back to Dashboard
-                </button>
 
             </div>
 
