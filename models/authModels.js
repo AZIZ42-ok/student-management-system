@@ -26,9 +26,17 @@ async function registerUser(user) {
 async function findFirstUser() {
     const { default: db } = await dbPromise;
 
-    const result = await db.query(
-        db.raw.sql`SELECT id FROM users LIMIT 1`.build()
-    );
+    const table = db.sql.public.users;
+
+    const query = db.raw.sql`
+        SELECT id FROM users LIMIT 1
+    `
+    .returnsRow({
+        id: table.columns.id
+    })
+    .build();
+
+    const result = await db.query(query);
 
     return result[0];
 }
